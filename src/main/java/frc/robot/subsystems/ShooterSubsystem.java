@@ -16,7 +16,9 @@ public class ShooterSubsystem extends SubsystemBase {
 
     private final MechanismLigament2d shooterAngle;
 
-    private double targetSpeed = 0.0, targetAngle = 0.0;
+    private double targetSpeed = 0.0, 
+                   targetAngle = 0.0,
+                   gearRatio = 15;
 
     public ShooterSubsystem(ShooterIO io) {
         this.io = io;
@@ -50,7 +52,7 @@ public class ShooterSubsystem extends SubsystemBase {
     }
 
     public void setMechanism2d() {
-        shooterAngle.setAngle(this.io.getShooterAngle());
+        shooterAngle.setAngle(this.io.getShooterAngle() / gearRatio);
     }
 
 }
